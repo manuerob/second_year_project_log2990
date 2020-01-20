@@ -1,0 +1,54 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#container {
+  animation: 0.2s ease-out 0s 1 slideInFromLeft;
+  position: relative;
+  margin: 1em 3em 1em 0;
+  height: 50px;
+  width: 50px i {
+    margin: 0;
+    padding: 0;
+  }
+  .button {
+    font-size: 40px;
+    transition: font-size 0.2s ease-in-out;
+
+    &:hover {
+      font-size: 43px;
+    }
+  }
+
+  #primary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  #secondary {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 0;
+  }
+  #switch {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+    font-size: 10px;
+    color: rgb(240, 210, 172);
+    z-index: 0;
+    transition: color, font-size 0.2s ease-in;
+
+    &:hover {
+      font-size: 15px;
+      color: rgb(240, 210, 172);
+    }
+  }
+}

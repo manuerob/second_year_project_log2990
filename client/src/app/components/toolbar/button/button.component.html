@@ -1,0 +1,27 @@
+<div
+  *ngIf="tool"
+  [ngClass]="{ active: isActive(), manager: manager, parent: parent, tool: !manager }"
+  (mouseleave)="onMouseLeave()"
+  (mouseenter)="onMouseEnter()"
+  (click)="onClick($event)"
+  id="container"
+>
+  <div id="icon">
+    <i class="icon icon-{{ tool.button.iconName }}"></i>
+  </div>
+
+  <div id="chevron">
+    <i *ngIf="tool.button.children" class="icon icon-chevron-down"></i>
+  </div>
+
+  <div *ngIf="!tool.button.children" id="helper" [ngClass]="{ parent: true }">
+    <video autoplay loop muted playsinline src="{{ path }}"></video>
+    <p>{{ tool.button.helperText }}</p>
+  </div>
+
+  <span *ngIf="tool && showChildren">
+    <ng-container *ngFor="let tool of tool.button.children">
+      <app-button [tool]="tool" [manager]="tool.button.managerButton"></app-button>
+    </ng-container>
+  </span>
+</div>

@@ -1,0 +1,37 @@
+<div id="container">
+  <div class="overlay" *ngIf="!canExport || emptyCanvas">
+    <div id="warning-content">
+      <p id="warning" *ngIf="!canExport()">
+        !!! Ce dessin ne pas etre exporté
+      </p>
+      <p id="warning" *ngIf="emptyCanvas">!!! Aucun dessin à exporter</p>
+      <app-custom-button name="Annuler" (clicked)="onClose()"></app-custom-button>
+    </div>
+  </div>
+  <section>
+    <div id="exportedImage" [innerHtml]="drawing | safe: 'html'"></div>
+    <div id="action-button">
+      <app-custom-button
+        [disabled]="emptyCanvas"
+        name="Exporter à PNG"
+        (clicked)="onExportPng()"
+      ></app-custom-button>
+      <app-custom-button
+        [disabled]="emptyCanvas"
+        name="Exporter à JPG"
+        (clicked)="onExportJpeg()"
+      ></app-custom-button>
+      <app-custom-button
+        [disabled]="emptyCanvas"
+        name="Exporter à BMP"
+        (clicked)="onExportBmp()"
+      ></app-custom-button>
+      <app-custom-button
+        [disabled]="emptyCanvas"
+        name="Exporter à SVG"
+        (clicked)="onExportSvg()"
+      ></app-custom-button>
+      <app-custom-button name="Annuler" [cancel]="true" (clicked)="onClose()"></app-custom-button>
+    </div>
+  </section>
+</div>

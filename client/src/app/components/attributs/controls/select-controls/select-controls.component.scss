@@ -1,0 +1,14 @@
+@import "../../../../../styles-variables.scss";
+
+#container{
+    margin: .5em 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    button{
+        transition: color .5s ease-in-out;
+        &:hover{
+            color: $background-color-toolbar-button-active;
+        }
+    }
+}

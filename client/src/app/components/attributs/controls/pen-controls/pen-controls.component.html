@@ -1,0 +1,14 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  [name]="minimumName"
+  [value]="minWidth"
+  (valueChanged)="onMinWidthChange($event)"
+></app-input-number>
+<app-input-number
+  [min]="1"
+  [max]="100"
+  [name]="maximumName"
+  [value]="width"
+  (valueChanged)="onMaxWidthChange($event)"
+></app-input-number>

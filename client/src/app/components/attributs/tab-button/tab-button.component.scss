@@ -1,0 +1,32 @@
+@import '../../../../styles-variables.scss';
+
+#container {
+  height: 40px;
+  align-items: center;
+  display: flex;
+  flex: 1 1 0px;
+  color: gray !important;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+
+  p {
+    color: gray;
+  }
+
+  &:hover > p {
+    color: black !important;
+  }
+  &:hover {
+    border-bottom: rgba($color: $background-color-toolbar-button-hover, $alpha: 0.5) 3px solid !important;
+    background-color: rgba($color: $background-color-toolbar-button-hover, $alpha: 1);
+  }
+}
+
+.active {
+  p {
+    color: white !important;
+  }
+  border-bottom: rgba($color: #fff, $alpha: 0.5) 3px solid !important;
+}

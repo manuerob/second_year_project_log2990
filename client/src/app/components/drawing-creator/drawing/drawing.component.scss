@@ -1,0 +1,84 @@
+@import "../../../../styles-variables.scss";
+
+#container {
+  margin: 1em auto;
+  background-color: $secondary-color;
+  padding: 1em;
+  margin: 0;
+  position: relative;
+  width: 100%;
+
+  .overlay {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    top: 0;
+    display: flex;
+    left: 0;
+    z-index: 50;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    #warning-content {
+      height: 200px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: $warning;
+      }
+    }
+  }
+
+  input {
+    color: black;
+  }
+  .icon {
+    cursor: pointer;
+    font-size: 35px;
+    color: white;
+  }
+  #main-content {
+    display: flex;
+  }
+  #color-picker{
+    margin-left: 5em;
+  }
+}
+#warning {
+  color: $warning;
+  margin: 1em 0;
+}
+#action {
+  display: flex;
+}
+
+#color-picker {
+  width: 300px;
+}
+app-color-picker {
+  width: 30%;
+}
+
+mat-dialog-container {
+  background: red;
+}
+
+.controles-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  label {
+    color: white;
+  }
+}
+
+#action-button {
+  display: flex;
+  align-self: flex-end;
+}

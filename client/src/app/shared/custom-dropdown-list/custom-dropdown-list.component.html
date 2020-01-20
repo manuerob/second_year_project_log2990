@@ -1,0 +1,11 @@
+<div id="container">
+  <mat-form-field>
+    <mat-label>{{ title }}</mat-label>
+
+    <mat-select (selectionChange)="onValueChanged($event)" [(value)]="currentValue">
+      <mat-option *ngFor="let element of values | keyvalue" [value]="element.key">
+        {{ element.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

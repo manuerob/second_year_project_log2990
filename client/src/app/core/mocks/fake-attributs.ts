@@ -1,0 +1,27 @@
+import { Attributs } from '../models/attributs';
+
+export const FAKE_ATTRIBUTS: Attributs = {
+  width: 12,
+  plotType: 'Full',
+  angle: 0,
+  numberOfSize: 1,
+  junctionType: 'round',
+  linePattern: 'continue',
+  pointJointDiameter: 8,
+  texture: 'air_spray',
+  scaleFactor: 20,
+  stampChoice: -1,
+  sideCount: 5,
+  lineJoint: 'round',
+  alignmentType: 'start',
+  mutator: 'bold',
+  font: 'arial',
+  fontSize: 12,
+  minWidth: 1,
+  eraseSize: 10,
+  emissionRate: 100,
+  featherLength: 10,
+  snappingPoint: 'center-middle',
+  tolerance: 15,
+  featherWidth: 1,
+};

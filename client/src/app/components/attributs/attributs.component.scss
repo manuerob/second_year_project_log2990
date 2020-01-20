@@ -1,0 +1,21 @@
+@import "../../../styles-variables.scss";
+
+#container {
+  display: flex;
+  overflow: hidden;
+  height: 99vh;
+  background: $primary-color;
+  flex-direction: column;
+
+  #button {
+    display: flex;
+    app-tab-button{
+      display: flex;
+      flex:1;
+    }
+  }
+
+  app-attributs-details {
+    width: 100%;
+  }
+}

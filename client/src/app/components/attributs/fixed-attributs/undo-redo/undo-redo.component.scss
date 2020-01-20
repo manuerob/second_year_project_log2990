@@ -1,0 +1,13 @@
+@import '../../../../../styles-variables.scss';
+
+#container {
+  button {
+    transition: color 0.5s ease-in-out;
+    &:hover {
+      color: $background-color-toolbar-button-active;
+    }
+  }
+  .matTooltipStyle {
+    background: #b71c1c;
+  }
+}

@@ -1,0 +1,33 @@
+<div id="color-picker-content">
+  <app-color-gradient
+    [(rgba)]="color"
+    [spectrumHex]="spectrum.hex"
+    [spectrum]="spectrum"
+  ></app-color-gradient>
+  <app-color-spectrum
+    [(spectrum)]="spectrum"
+    [h]="color.hsv"
+  ></app-color-spectrum>
+  <div class="section">
+    <app-color-opacity [rgba]="color"></app-color-opacity>
+  </div>
+  <div class="section" background-color="white">
+    <div id="overlay">
+      <div
+        id="shown-color"
+        [ngStyle]="{ 'background-color': color.getColorString() || 'white' }"
+      ></div>
+    </div>
+    <app-color-hexadecimal [(rgba)]="color"></app-color-hexadecimal>
+  </div>
+  <app-previous-colors></app-previous-colors>
+  <button
+    [ngStyle]="{
+      'animation': color.compare(initColor) ? 'none' : 'glowing 3000ms infinite'
+    }"
+    mat-stroked-button
+    (click)="confirm()"
+  >
+    Confirmer
+  </button>
+</div>

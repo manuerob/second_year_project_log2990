@@ -1,0 +1,13 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Largeur"
+  [value]="width"
+  (valueChanged)="onWidthChange($event)"
+></app-input-number>
+<app-custom-dropdown-list
+  (valueChanged)="onSelectChange($event)"
+  title="Textures"
+  [currentValue]="currentTexture"
+  [values]="textures"
+></app-custom-dropdown-list>

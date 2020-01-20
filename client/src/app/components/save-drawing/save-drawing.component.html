@@ -1,0 +1,47 @@
+<div id="container">
+  <div class="overlay" *ngIf="!canSave() || emptyCanvas">
+    <div id="warning-content">
+      <p id="warning" *ngIf="!canSave()">!!! Ce dessin ne pas etre sauvegardé</p>
+      <p id="warning" *ngIf="emptyCanvas">!!! Il n'y a rien a sauvegarder</p>
+      <app-custom-button name="Annuler" (clicked)="onClose()"></app-custom-button>
+    </div>
+  </div>
+  <mat-form-field id="title">
+    <input matInput placeholder="entrez un titre" [formControl]="fileName" required />
+    <mat-error *ngIf="fileName.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList aria-label="tag selection">
+      <mat-chip
+        *ngFor="let tag of tags"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(tag)"
+      >
+        {{ tag }}
+        <mat-icon matChipRemove *ngIf="removable">Annuler</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="nouvelle etiquette..."
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+  <div id="savedImage" [innerHtml]="drawing | safe: 'html'"></div>
+  <div id="action-button">
+    <app-custom-button
+      [disabled]="emptyCanvas"
+      name="Enregistrer sous"
+      (clicked)="saveAs()"
+    ></app-custom-button>
+    <app-custom-button
+      [disabled]="emptyCanvas"
+      name="Enregistrer"
+      (clicked)="onSave()"
+    ></app-custom-button>
+    <app-custom-button name="Annuler" (clicked)="onClose()"></app-custom-button>
+  </div>
+</div>

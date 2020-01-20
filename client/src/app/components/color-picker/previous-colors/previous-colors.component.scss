@@ -1,0 +1,39 @@
+#container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .button {
+    height: 15px;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color:white;
+    margin-right: 10px;
+    background-color: rgb(60, 112, 158);
+    cursor: pointer;
+  }
+
+  .color-square {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    span {
+      cursor: inherit;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10px;
+      font-size: 10px;
+      height: 10px;
+      background-color: rgb(238, 206, 165);
+    }
+  }
+}

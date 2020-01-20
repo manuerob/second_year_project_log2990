@@ -1,0 +1,8 @@
+<app-input-number
+  [min]="min"
+  [max]="max"
+  name="Taille des carreaux"
+  [value]="gridService.sizeBigSquare"
+  (valueChanged)="onUpdateSizeBigSquare($event)"
+  *ngIf="snapping || grid"
+></app-input-number>

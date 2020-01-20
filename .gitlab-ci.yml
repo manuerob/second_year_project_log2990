@@ -1,0 +1,218 @@
+image: $CI_REGISTRY/blitzter47/projet2990
+
+before_script:
+  - export CHROME_BIN=/usr/bin/chromium-browser
+  - export NG_CLI_ANALYTICS=ci
+
+myTestUnitClient:
+  script:
+    - cd client
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install --prefer-offline
+    # N.B. multiline string below
+    - >-
+      ./node_modules/@angular/cli/bin/ng test
+      --watch=false
+      --sourceMap=false
+      --code-coverage
+      --browsers=ChromeHeadlessNoSandbox
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - client/**/*
+      - client/*
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /dev/' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - client/**/*
+      - client/*
+      when: always
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"' # This rule will be evaluated
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /master/' # This rule will be evaluated
+      when: always
+
+myTestLintClient:
+  script:
+    - cd client
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install --prefer-offline
+    # N.B. multiline string below
+    - >-
+      ./node_modules/@angular/cli/bin/ng lint
+      --type-check
+      --format stylish
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - client/**/*
+      - client/*
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /dev/' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - client/**/*
+      - client/*
+      when: always
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"' # This rule will be evaluated
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /master/' # This rule will be evaluated
+      when: always
+
+myTestUnitFirefoxClient:
+  script:
+    - cd client
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install --prefer-offline
+    # N.B. multiline string below
+    - >-
+      ./node_modules/@angular/cli/bin/ng test
+      --watch=false
+      --sourceMap=false
+      --code-coverage
+      --browsers='FirefoxHeadless'
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"' # This rule will be evaluated
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /master/' # This rule will be evaluated
+      when: always
+
+myTestBuildClient:
+  script:
+    - cd client
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install --prefer-offline
+    - ./node_modules/@angular/cli/bin/ng build --sourceMap=false
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    #- if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"' # This rule will be evaluated
+      #changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      #- client/**/*
+      #- client/*
+      #when: always
+    #- if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /dev/' # This rule will be evaluated
+      #changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      #- client/**/*
+      #- client/*
+      #when: always
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"' # This rule will be evaluated
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /master/' # This rule will be evaluated
+      when: always
+
+# Do every compile/tests from scratch, without preexisting cache
+myFinalScratchClient:
+  script:
+    - cd client
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install
+    - ./node_modules/@angular/cli/bin/ng build --sourceMap=false
+    # N.B. multiline string below
+    - >-
+      ./node_modules/@angular/cli/bin/ng test
+      --watch=false
+      --sourceMap=false
+      --code-coverage
+      --browsers='ChromeHeadlessNoSandbox,FirefoxHeadless'
+      # N.B. multiline string below
+    - >-
+      ./node_modules/@angular/cli/bin/ng lint
+      --type-check
+      --format stylish
+  rules:
+    - if: '$FINAL_SCRATCH_RUN' # If the simple presence of the var does
+      when: always
+
+myTestServer:
+  script:
+    - cd server
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install --prefer-offline
+    - npm run coverage_no_check
+    - npm run lint
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - server/**/*
+      - server/*
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /dev/' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - server/**/*
+      - server/*
+      when: always
+
+myFinalServer:
+  script:
+    - cd server
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install
+    - npm run tsc
+    - npm run coverage_no_check
+    - npm run lint
+  cache:
+    paths:
+      - client/node_modules/
+      - server/node_modules/
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"' # This rule will be evaluated
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /master/' # This rule will be evaluated
+      when: always
+
+# Do every compile/tests from scratch, without preexisting cache
+myFinalScratchServer:
+  script:
+    - cd server
+    # setting to make npm faster
+    - npm set progress=false
+    - npm install
+    - npm run tsc
+    - npm run coverage_no_check
+    - npm run lint
+  rules:
+    - if: '$FINAL_SCRATCH_RUN' # If the simple presence of the var does
+      when: always
+
+myGlobJob:
+  image: $CI_REGISTRY/blitzter47/projet2990/minimal
+  script:
+    - exit 0
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - common/**/*
+      - common/*
+      - "*"
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME =~ /dev/' # This rule will be evaluated
+      changes: # Will include the job and set to when:manual if any of the follow paths match a modified file.
+      - common/**/*
+      - common/*
+      - "*"
+      when: always

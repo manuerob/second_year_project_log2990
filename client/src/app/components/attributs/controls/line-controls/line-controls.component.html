@@ -1,0 +1,26 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Largeur"
+  [value]="width"
+  (valueChanged)="onWidthChange($event)"
+></app-input-number>
+<app-custom-dropdown-list
+  (valueChanged)="onlinePatternChange($event)"
+  title="Motif de ligne"
+  [currentValue]="currentLinePattern"
+  [values]="linePatterns"
+></app-custom-dropdown-list>
+<app-custom-dropdown-list
+  (valueChanged)="onJunctionTypeChange($event)"
+  title="Type de jonction"
+  [currentValue]="currentJunctionType"
+  [values]="junctionTypes"
+></app-custom-dropdown-list>
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Diamètre de jonction"
+  [value]="pointJointDiameter"
+  (valueChanged)="onJointDiameterChange($event)"
+></app-input-number>

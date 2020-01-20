@@ -1,0 +1,80 @@
+<div id="container">
+  <div id="welcome-message">
+    <div class="top">
+      <h2>Bienvenue sur Pixie!</h2>
+      <mat-dialog-actions>
+        <div class="icon" (click)="onClose()" aria-label="Close Modal">
+          <i class="icon icon-x"></i>
+        </div>
+      </mat-dialog-actions>
+    </div>
+    <mat-dialog-content>
+      <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+          <div class="BasicInformation">
+            <h1>Une application de dessins vectoriels</h1>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="WelcomeImage">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/40/Feather.svg"
+            />
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-dialog-actions>
+        <button mat-button class="tutorial-button" (click)="showTutorial()">
+          Instructions
+        </button>
+      </mat-dialog-actions>
+    </mat-dialog-content>
+  </div>
+
+  <div id="tutorial" style="display:none;">
+    <div class="top">
+      <h2>Instructions</h2>
+      <mat-dialog-actions>
+        <div class="icon" (click)="onClose()" aria-label="Close Modal">
+          <i class="icon icon-x"></i>
+        </div>
+      </mat-dialog-actions>
+    </div>
+    <mat-dialog-content>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <ng-template matStepperIcon="edit"></ng-template>
+        <mat-step *ngFor="let instruction of instructions">
+          <ng-template matStepLabel>{{ instruction.title }}</ng-template>
+          <div class="instructionDiv" layout="row" layout-align="center center">
+            <div class="instruction">
+              {{ instruction.description }}
+            </div>
+            <div class="instructionImages">
+              <img src="{{ instruction.image }}" />
+            </div>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div>
+        <button
+          mat-button
+          class="tutorial-button"
+          (click)="goBack(stepper)"
+          *ngIf="nextIndex != 0"
+        >
+          Précédent
+        </button>
+        <button
+          mat-button
+          class="tutorial-button"
+          (click)="goForward(stepper)"
+          *ngIf="nextIndex != instructions.length - 1"
+        >
+          Suivant
+        </button>
+      </div>
+    </mat-dialog-content>
+  </div>
+  <input type="checkbox" [(ngModel)]="isChecked" />Ne plus afficher ce message<br />
+</div>

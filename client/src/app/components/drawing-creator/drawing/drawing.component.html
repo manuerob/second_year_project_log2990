@@ -1,0 +1,78 @@
+<div id="container">
+  <div class="overlay" *ngIf="canDraw() && dontSave">
+    <div id="warning-content">
+      <p id="warning">!!! dessin sur le canvas non sauvegarder</p>
+      <app-custom-button warning="true" name="Enregistrer" (clicked)="onSaveOld()"></app-custom-button>
+      <app-custom-button name="Ne pas enregistrer" (clicked)="dontSaveOld()"></app-custom-button>
+    </div>
+  </div>
+
+  <div class="icon" (click)="onClose()" aria-label="Close Modal">
+    <i class="icon icon-x"></i>
+  </div>
+  <div id="main-content">
+    <form [formGroup]="drawingService.form" class="normal-form" (submit)="onCreate()">
+      <div class="controles-container">
+        <input type="hidden" formControlName="$key" />
+        <label for="fileName">Nom du fichier</label>
+        <mat-form-field>
+          <input
+            formControlName="fileName"
+            matInput
+            type="text"
+            class="formControlName"
+            name="fileName"
+            required
+          />
+          <mat-error>Nom de fichier obligatoire.</mat-error>
+        </mat-form-field>
+
+        <label for="fileHeight">Hauteur</label>
+        <mat-form-field>
+          <input
+            formControlName="fileHeight"
+            matInput
+            type="number"
+            class="formControlName"
+            name="fileHeight"
+            min="1"
+            required
+          />
+          <mat-error *ngIf="drawingService.form.controls['fileHeight'].errors?.min"
+            >La dimension doit etre supérieure a 0.</mat-error
+          >
+          <mat-error *ngIf="drawingService.form.controls['fileHeight'].errors?.required"
+            >Dimension obligatoire.</mat-error
+          >
+        </mat-form-field>
+
+        <label for="fileWidth">Largeur</label>
+        <mat-form-field>
+          <input
+            formControlName="fileWidth"
+            matInput
+            type="number"
+            class="formControlName"
+            name="fileWidth"
+            min="1"
+            required
+          />
+          <mat-error *ngIf="drawingService.form.controls['fileHeight'].errors?.min"
+            >La dimension doit etre supérieure a 0.</mat-error
+          >
+          <mat-error *ngIf="drawingService.form.controls['fileHeight'].errors?.required"
+            >Dimension obligatoire.</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </form>
+    <div id="color-picker">
+      <app-color-picker [newDrawing]='true' (colorSelected)="changeCanvasColor($event)"></app-color-picker>
+    </div>
+  </div>
+
+  <div id="action-button">
+    <app-custom-button name="Nouveau" (clicked)="onCreate()"></app-custom-button>
+    <app-custom-button name="Annuler" (clicked)="onClose()"></app-custom-button>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-custom-dropdown-list
+  (valueChanged)="onSnappinPointChange($event)"
+  title="Choix du point d'alignement"
+  [currentValue]="currentSnappingPoint"
+  [values]="snappingPointChoices"
+  *ngIf="snappingService.showSnapping"
+></app-custom-dropdown-list>

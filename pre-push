@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Author: Chi-Huy Trinh
+# Version : 2019-10-03
+
+# N.B. Windows user should use this with GitBash
+
+# Copy this file (e.g. by symlink) in your local ./.git/hooks/
+# folder as "pre-push". So every time you use '$ git push' command, your
+# local project will be tested by the commands below first, as you
+# would have done it manually yourself, prior pushing your code :
+#
+# $ npm install (update packages)
+# $ ng test (test compilation and unit tests)
+# $ ng lint (test lint)
+#
+# Once your code tested successfully, 'push' command will fire.
+# But if any error occurs, it will abort and won't 'push'.
+
+if [ -d client ]; then
+	echo '>>cd client'
+	cd client
+fi
+
+npm set progress=false
+
+echo '>>npm installing'
+# $ npm install (update packages)
+npm install --prefer-offline
+
+if [ "$?" -ne 0 ]; then
+	exit 1;
+fi
+
+echo '>>ng building'
+# $ ng build (test compilation)
+./node_modules/@angular/cli/bin/ng build \
+--sourceMap=false
+
+if [ "$?" -ne 0 ]; then
+	exit 1;
+fi
+
+echo '>>ng testing'
+# $ ng test (test unit tests)
+./node_modules/@angular/cli/bin/ng test \
+--watch=false \
+--sourceMap=false \
+--codeCoverage=true \
+--browsers=ChromeHeadlessNoSandbox
+
+if [ "$?" -ne 0 ]; then
+	exit 2;
+fi
+
+echo '>>ng linting'
+# $ ng lint (test lint)
+./node_modules/@angular/cli/bin/ng lint \
+--fix \
+--type-check \
+--format stylish
+
+if [ "$?" -ne 0 ]; then
+	exit 3;
+fi
+
+exit 0

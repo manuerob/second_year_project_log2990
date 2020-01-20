@@ -1,0 +1,68 @@
+{
+  "extends": "../common/tslint.json",
+  "rulesDirectory": ["tslint-consistent-codestyle"],
+  "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": [
+        "./app/services/IDate.ts",
+        "**/*.spec.ts",
+        "**/*.mock.ts"
+    ]
+  },
+  "rules": {
+    "triple-equals": [true, "allow-null-check", "allow-undefined-check"],
+    "no-eval": true,
+    "indent": [true, "spaces", 2],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "require-const-for-all-caps",
+        "allow-leading-underscore"
+      ]
+    },
+    "file-name-casing": [false, "kebab-case"],
+    "class-name": true,
+    "typedef": [
+      true,
+      "call-signature",
+      "arrow-call-signature",
+      "property-declaration",
+      "variable-declaration-ignore-function",
+      "object-destructuring",
+      "array-destructuring"
+    ],
+    "max-file-line-count": [true, 300],
+    "no-debugger": true,
+    "no-magic-numbers": [true, { "allowed-numbers": [0, 1, 2], "ignore-jsx": true }],
+    "no-empty-interface": true,
+    "no-unsafe-any": false,
+    "no-any": [true, { "ignore-rest-args": true }],
+    "naming-convention": [
+      true,
+      {
+        "type": "default",
+        "format": "camelCase",
+        "leadingUnderscore": "forbid",
+        "trailingUnderscore": "forbid"
+      },
+      { "type": "variable", "modifiers": ["global", "const"], "format": ["UPPER_CASE"] },
+      { "type": "variable", "modifiers": ["export", "const"], "format": "UPPER_CASE" },
+      { "type": "functionVariable", "modifiers": ["export", "const"], "format": "camelCase" },
+      { "type": "parameter", "modifiers": "unused", "leadingUnderscore": "allow" },
+      { "type": "member", "modifiers": "private", "leadingUnderscore": "allow" },
+      { "type": "member", "modifiers": "protected", "leadingUnderscore": "allow" },
+      { "type": "method", "filter": "^toJSON$", "format": null },
+      { "type": "property", "modifiers": ["public", "static", "const"], "format": "UPPER_CASE" },
+      { "type": "property", "modifiers": ["public", "static", "readonly"], "format": "UPPER_CASE" },
+      { "type": "type", "format": "PascalCase" },
+      { "type": "class", "modifiers": "abstract", "prefix": "Abstract" },
+      { "type": "genericTypeParameter", "regex": "^[TUV]$" },
+      { "type": "enumMember", "format": "PascalCase" }
+    ],
+    "early-exit": [false, { "max-length": 4, "ignore-constructor": true }],
+    "no-accessor-recursion": false,
+    "no-collapsible-if": false,
+    "no-return-undefined": true
+  }
+}

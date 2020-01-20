@@ -1,0 +1,41 @@
+@import '../styles-variables.scss';
+
+:host {
+  display: contents;
+}
+
+.full-height {
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  background-color: $background-color;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 100vw;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3px 50px minmax(0, 1fr) 300px 3px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    '. toolbar canvas attribut .'
+    '. main .';
+  grid-column-gap: 5px;
+  grid-template-rows: 1fr;
+
+  app-toolbar {
+    grid-column: 2/3;
+  }
+
+  app-attributs {
+    grid-column: 4/5;
+  }
+
+  app-canvas {
+    grid-column: 3/4;
+    height: 99vh;
+    overflow: auto;
+  }
+}

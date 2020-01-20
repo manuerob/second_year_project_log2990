@@ -1,0 +1,8 @@
+<div id="container">
+  <app-fixed-attributs></app-fixed-attributs>
+  <app-attributs-details *ngIf="activeButton === 'Attributs'; else shapes"></app-attributs-details>
+  <ng-template #shapes>
+    <app-display-shapes></app-display-shapes>
+  </ng-template>
+  <app-color-picker id="color-picker-content" *ngIf="show"></app-color-picker>
+</div>

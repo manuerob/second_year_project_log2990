@@ -1,0 +1,19 @@
+<div id="container">
+  <button
+    matTooltip="annuler"
+    matTooltipClass="matTooltipStyle"
+    mat-icon-button
+    aria-label="annuler"
+    (click)="undo()"
+  >
+    <mat-icon>undo</mat-icon>
+  </button>
+  <button
+    matTooltip="refaire"
+    mat-icon-button
+    aria-label="refaire"
+    (click)="redo()"
+  >
+    <mat-icon>redo</mat-icon>
+  </button>
+</div>

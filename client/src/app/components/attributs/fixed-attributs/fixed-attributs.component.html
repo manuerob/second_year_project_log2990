@@ -1,0 +1,13 @@
+<div id="container">
+  <div id="buttons">
+    <app-switch-color-picker
+      (selectColor)="onSelectColor(selectedColor)"
+    ></app-switch-color-picker>
+    <app-undo-redo></app-undo-redo>
+    <app-grid-snap></app-grid-snap>
+  </div>
+  <div id="controls" [ngClass]="{hide: colorPicker.show$ | async}">
+    <app-grid-controls></app-grid-controls>
+    <app-snapping-controls></app-snapping-controls>
+  </div>
+</div>

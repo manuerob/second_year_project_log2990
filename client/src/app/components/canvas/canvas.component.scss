@@ -1,0 +1,55 @@
+@import '../../../styles-variables.scss';
+
+#test {
+  background-color: black;
+  height: 200px;
+  width: 200px;
+}
+
+#overlay {
+  width: 130px;
+  margin-right: 1em;
+  height: 50px;
+  background-image: url('https://i7.pngguru.com/preview/569/705/68/white-black-pattern-white-circle-background.jpg');
+}
+
+#container {
+  max-height: 100vh;
+  position: relative;
+  
+  #image {
+    border: 3px $background-color solid;
+    background-image: url('https://i7.pngguru.com/preview/569/705/68/white-black-pattern-white-circle-background.jpg');
+
+
+    //background-color: $background-color-canvas;
+    transition: border-color 0.5s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    &.drawing {
+      border: 3px rgb(16, 223, 43) solid !important;
+    }
+
+    &:hover {
+      border: 3px $background-color-toolbar-button-hover solid;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    app-grid {
+      z-index: 200;
+      grid-row: 1 / 2;
+      display: grid;
+      grid-column: 1 / 2;
+      pointer-events: none;
+    }
+  }
+}

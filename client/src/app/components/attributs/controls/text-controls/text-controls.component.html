@@ -1,0 +1,25 @@
+<app-custom-dropdown-list
+  (valueChanged)="onFontChange($event)"
+  title="Police d'écriture"
+  [currentValue]="currentFont"
+  [values]="fonts"
+></app-custom-dropdown-list>
+<app-input-number
+  [min]="1"
+  [max]="200"
+  name="Taille de la police"
+  [value]="fontSize"
+  (valueChanged)="onFontSizeChange($event)"
+></app-input-number>
+<app-custom-dropdown-list
+  (valueChanged)="onMutatorChange($event)"
+  title="Mutateur"
+  [currentValue]="currentMutator"
+  [values]="mutators"
+></app-custom-dropdown-list>
+<app-custom-dropdown-list
+  (valueChanged)="onAlignTypeChange($event)"
+  title="Alignement"
+  [currentValue]="currentAlignmentType"
+  [values]="alignmentTypes"
+></app-custom-dropdown-list>

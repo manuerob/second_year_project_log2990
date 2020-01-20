@@ -1,0 +1,16 @@
+@import "../../../styles-variables.scss";
+
+#container {
+  height: 98.5vh;
+  background-color: $primary-color;
+  display:flex;
+  justify-content: space-between;
+  flex-direction:column;
+  svg {
+    fill: currentColor;
+  }
+
+  #quick-access{
+      background-color: $secondary-color;
+  }
+}

@@ -1,0 +1,105 @@
+<div id="container">
+  <div *ngIf="!isLoadingTags">
+    <app-tags (changeSelectedTags)="onChangeSelectedTags($event)"></app-tags>
+  </div>
+
+  <mat-spinner *ngIf="isLoading; else showGraphs"></mat-spinner>
+
+  <ng-template #showGraphs>
+    <div class="overlay" *ngIf="hasWarning()">
+      <div class="warning-content">
+        <p class="warning" *ngIf="!emptyCanvas && !savedDrawing.currentGraphSaved">
+          !!! Votre dessin n'est pas sauvegardé
+        </p>
+        <app-custom-button
+          warning="true"
+          name="Enregistrer"
+          (clicked)="onSaveOld()"
+        ></app-custom-button>
+        <app-custom-button name="Ne pas enregistrer" (clicked)="closeWarning()"></app-custom-button>
+      </div>
+    </div>
+
+    <div class="overlay" *ngIf="errorOpenFile">
+      <div class="warning-content">
+        <p *ngIf="errorOpenFile" class="warning">
+          !!! Ce fichier ne peut pas être ouvert. Veuillez essayer avec un autre.
+        </p>
+        <app-custom-button
+          warning="true"
+          name="ok"
+          (clicked)="clearOpenFileError()"
+        ></app-custom-button>
+      </div>
+    </div>
+
+    <p *ngIf="!filteredGraphs.length; else graph">Aucun dessin ne correspond à ces critères</p>
+
+    <ng-template #graph>
+      <div class="graphs">
+        <ng-container *ngFor="let graph of graphsOnPage">
+          <mat-card
+            class="graph-card"
+            (click)="selectCard(graph)"
+            [ngClass]="activeCard(graph.id) ? 'active' : ''"
+          >
+            <mat-card-header>
+              <mat-card-title>{{ graph.title }}</mat-card-title>
+            </mat-card-header>
+            <div id="savedImage" [innerHtml]="graph.htmlElement | safe: 'html'"></div>
+            <div id="tags">
+              <ng-container *ngIf="graph.tags.length">
+                <ng-container *ngFor="let tag of graph.tags">
+                  <span class="tag">
+                    <p>{{ tag }}</p>
+                  </span>
+                </ng-container>
+              </ng-container>
+            </div>
+            <div
+              id="timestamp"
+              *ngIf="
+                (graph.createdAt | amFromUnix | amDifference: today:'days':true) <= 7;
+                else otherContent
+              "
+            >
+              {{ graph.createdAt | amFromUnix | amTimeAgo }}
+            </div>
+            <ng-template #otherContent>{{ graph.createdAt | amFromUnix }}</ng-template>
+          </mat-card>
+        </ng-container>
+      </div>
+    </ng-template>
+  </ng-template>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageChanged($event)"
+  >
+  </mat-paginator>
+  <div id="action-button">
+    <div id="input-file">
+      <input type="file" name="file" id="file" class="inputfile" (change)="changeFile($event)" />
+      <label for="file"
+        ><mat-icon aria-hidden="false" aria-label="téléverser un fichier">folder_open</mat-icon
+        >{{ fileName }}</label
+      >
+    </div>
+
+    <div id="buttons">
+      <app-custom-button
+        [disabled]="!currentGraphSelected"
+        name="Supprimer"
+        (clicked)="deleteCard()"
+      ></app-custom-button>
+      <app-custom-button
+        [disabled]="!canEdit() && !hasWarning()"
+        name="Ouvrir"
+        (clicked)="openCard()"
+      ></app-custom-button>
+
+      <app-custom-button name="Annuler" (clicked)="onClose()"></app-custom-button>
+    </div>
+  </div>
+</div>

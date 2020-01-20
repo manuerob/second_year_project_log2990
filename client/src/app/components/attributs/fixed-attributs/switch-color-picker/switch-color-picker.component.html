@@ -1,0 +1,20 @@
+<div id="container">
+  <div class="button color" id="primary">
+    <i
+      [ngStyle]="{ color: primaryColor.getColorString() }"
+      class=" icon icon-front-color"
+      (click)="modifyColor('primary')"
+    ></i>
+  </div>
+
+  <div class="button color" id="secondary">
+    <i
+      class=" icon icon-border"
+      [ngStyle]="{ color: secondaryColor.getColorString() }"
+      (click)="modifyColor('secondary')"
+    ></i>
+  </div>
+  <div id="switch">
+    <i class=" icon icon-refresh-ccw" (click)="onSwitch()"></i>
+  </div>
+</div>

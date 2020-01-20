@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Automatically add branch name and branch description to every commit message except merge commit.
+#
+# Found at : https://stackoverflow.com/questions/5894946/how-to-add-gits-branch-name-to-the-commit-message
+# and modified.
+
+# Copy this file (e.g. by symlink) in your local ./.git/hooks/
+# folder. So every time you commit, your
+# commit message will be automatically prepended with branch name.
+# For branches named "feature/*", such as "features/myWork",
+# it will prepend "[myWork]" only, stripping "feature/" string.
+# Otherwise, it should print the complete branch name.
+
+COMMIT_EDITMSG=$1
+
+addBranchName() {
+  NAME=$(git branch | grep '*' | sed 's/* //' | sed 's/^feature[^\/]*\///')
+  DESCRIPTION=$(git config branch."$NAME".description)
+  echo "[$NAME] $(cat $COMMIT_EDITMSG)" > $COMMIT_EDITMSG
+  if [ -n "$DESCRIPTION" ]
+  then
+     echo "" >> $COMMIT_EDITMSG
+     echo $DESCRIPTION >> $COMMIT_EDITMSG
+  fi
+}
+
+MERGE=$(cat $COMMIT_EDITMSG|grep -i 'merge'|wc -l)
+REBASE=$(cat $COMMIT_EDITMSG|grep -i '(no branch'|wc -l)
+
+if [ $MERGE -eq 0 ] && [ $REBASE -eq 0 ] ; then
+  addBranchName
+fi

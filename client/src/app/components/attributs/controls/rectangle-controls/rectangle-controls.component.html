@@ -1,0 +1,13 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Épaisseur du contour"
+  [value]="width"
+  (valueChanged)="onWidthChange($event)"
+></app-input-number>
+<app-custom-dropdown-list
+  (valueChanged)="onPlotTypeChange($event)"
+  title="Type de tracé"
+  [currentValue]="currentPlotType"
+  [values]="plotTypes"
+></app-custom-dropdown-list>

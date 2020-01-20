@@ -1,0 +1,20 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Échelle"
+  [value]="scaleFactor"
+  (valueChanged)="onScaleFactorChange($event)"
+></app-input-number>
+<app-input-number
+  [min]="0"
+  [max]="360"
+  name="Angle"
+  [(value)]="angle"
+  (valueChanged)="onAngleChange($event)"
+></app-input-number>
+<app-custom-dropdown-list
+  (valueChanged)="onStampChoiceChange($event)"
+  title="Choix d'étampe"
+  [currentValue]="currentStampChoice"
+  [values]="stampChoices"
+></app-custom-dropdown-list>

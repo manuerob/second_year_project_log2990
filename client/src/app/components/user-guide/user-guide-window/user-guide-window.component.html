@@ -1,0 +1,340 @@
+<div id="top" class="icon" (click)="onClose()" aria-label="Close Modal">
+  <i class="icon icon-x"></i>
+</div>
+<mat-dialog-content class="guide-content">
+  <h1>Pixie<br />Guide d'utilisation</h1>
+  <h2>Introduction</h2>
+  <p>
+    Pixie est une application de dessin vectoriel. Vous trouverez dans la barre
+    lat&eacute;rale gauche toutes les options d'outils de dessin ainsi que de
+    cr&eacute;ation et de sauvegarde de fichiers. Dans la barre lat&eacute;rale
+    droite vous aurez acc&egrave;s aux diff&eacute;rents attributs des outils de
+    travail ainsi que la liste des couches de dessin pour chaque objet
+    cr&eacute;&eacute;. Dans ce guide vous trouverez une description de chaque
+    outil ainsi que les raccourcis clavier qui leurs sont associ&eacute;s.
+  </p>
+  <h2>Raccourcis clavier</h2>
+  <table border="#000">
+    <tbody>
+      <tr>
+        <td><strong>R&eacute;sultat</strong></td>
+        <td><strong>Touche</strong></td>
+      </tr>
+      <tr>
+        <td>Options de fichiers</td>
+      </tr>
+      <tr>
+        <td>nouveau dessin</td>
+        <td>Ctrl+O</td>
+      </tr>
+      <tr>
+        <td>enregistrer</td>
+        <td>Ctrl+S</td>
+      </tr>
+      <tr>
+        <td>voir la gallerie de dessins</td>
+        <td>Ctrl+G</td>
+      </tr>
+      <tr>
+        <td>exporter le dessin</td>
+        <td>Ctrl+E</td>
+      </tr>
+      <tr>
+        <td><strong>Manipulations de s&eacute;lections</strong></td>
+      </tr>
+      <tr>
+        <td>couper</td>
+        <td>Ctrl+X</td>
+      </tr>
+      <tr>
+        <td>copier</td>
+        <td>Ctrl+C</td>
+      </tr>
+      <tr>
+        <td>coller</td>
+        <td>Ctrl+V</td>
+      </tr>
+      <tr>
+        <td>dupliquer</td>
+        <td>Ctrl+D</td>
+      </tr>
+      <tr>
+        <td>supprimer la s&eacute;lection</td>
+        <td>Supprimer</td>
+      </tr>
+      <tr>
+        <td>tout s&eacute;lectionner</td>
+        <td>Ctrl+A&nbsp;</td>
+      </tr>
+      <tr>
+        <td>annuler</td>
+        <td>Ctrl+Z</td>
+      </tr>
+      <tr>
+        <td>refaire</td>
+        <td>Ctrl+Shift+Z</td>
+      </tr>
+      <tr>
+        <td><strong>Choisir un outil</strong></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>crayon</td>
+        <td>&nbsp;C</td>
+      </tr>
+      <tr>
+        <td>pinceau&nbsp;</td>
+        <td>W&nbsp;</td>
+      </tr>
+      <tr>
+        <td>plume&nbsp;</td>
+        <td>P&nbsp;</td>
+      </tr>
+      <tr>
+        <td>stylo&nbsp;</td>
+        <td>Y&nbsp;</td>
+      </tr>
+      <tr>
+        <td>a&eacute;rosol&nbsp;</td>
+        <td>A&nbsp;</td>
+      </tr>
+      <tr>
+        <td>rectangle&nbsp;</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>ellipse&nbsp;</td>
+        <td>2&nbsp;</td>
+      </tr>
+      <tr>
+        <td>polygone&nbsp;</td>
+        <td>3&nbsp;</td>
+      </tr>
+      <tr>
+        <td>ligne&nbsp;</td>
+        <td>L&nbsp;</td>
+      </tr>
+      <tr>
+        <td>texte&nbsp;</td>
+        <td>T&nbsp;</td>
+      </tr>
+      <tr>
+        <td>applicateur de couleur</td>
+        <td>R</td>
+      </tr>
+      <tr>
+        <td>sceau de peinture</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>efface</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>pipette</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>s&eacute;lection</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td><strong>Zone de travail</strong></td>
+      </tr>
+      <tr>
+        <td>afficher/masquer la grille</td>
+        <td>G</td>
+      </tr>
+      <tr>
+        <td>activer/d&eacute;sactiver le magn&eacute;tisme</td>
+        <td>M</td>
+      </tr>
+      <tr>
+        <td>
+          Augmenter la taille des carr&eacute;s de la grille au prochain
+          multiple de 5
+        </td>
+        <td>+</td>
+      </tr>
+      <tr>
+        <td>
+          Diminuer la taille des carr&eacute;s de la grille au prochain multiple
+          de 5
+        </td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Options de fichiers</h2>
+  <h3>Cr&eacute;ation d'un nouveau dessin</h3>
+  <p>
+    Au moment de cr&eacute;er un nouveau dessin s&eacute;lectionnez le bouton
+    &laquo;Nouveau dessin&raquo; ou encore faites Ctrl+O. Celui-ci fera
+    appar&icirc;tre une fen&ecirc;tre permettant de sp&eacute;cifier les
+    caract&eacute;ristiques voulues pour le dessin (dimensions en pixels, nom et
+    couleur de fond).
+  </p>
+  <h3>Sauvegarde un dessin</h3>
+  <p>
+    Pour sauvegarder l'Avancement de votre dessin sur le serveur de Polydessin,
+    simplement appuyez sur le bouton &laquo;Sauvegarder&raquo; ou utilisez le
+    raccourci clavier Ctrl + S. Vous pourrez alors donner une ou plusieurs
+    &eacute;tiquettes pour votre dessin. &Agrave; noter que la sauvegarde sera
+    effectu&eacute;e uniquement sur le serveur, aucune sauvegarde locale n'est
+    possible.
+  </p>
+  <h3>Consulter la gallerie de dessins</h3>
+  <p>
+    La gallerie dessin affiche une liste de tous les dessins sauvegard&eacute;s
+    sur le serveur. Il est possible de filtrer cette liste en fonction des
+    &eacute;tiquettes attribu&eacute;es aux dessins. Vous pouvez charger un des
+    dessins et ou le supprimer.
+  </p>
+  <h3>Exporter le dessin</h3>
+  <p>
+    Les dessins peuvent &ecirc;tre export&eacute;s en&nbsp;<em>bmp, jpg</em>
+    ou&nbsp;<em>png.</em>
+  </p>
+  <h2>Outils</h2>
+  <h3>La couleur</h3>
+  <p>
+    L'outil couleur est un attribut universel qui sera toujours sur le panneau
+    d'attributs. Elle permet de s&eacute;lectionner une couleur au moyen d'une
+    palette, d'une valeur hexad&eacute;cimale ou encore RGBA. L'outil couleur
+    affiche les 10 derni&egrave;res couleurs. La couleur principale est
+    utilis&eacute;e pour dessiner et la couleur secondaire est utilis&eacute;e
+    pour les contours s'il y a lieu.
+  </p>
+  <h3>Crayon&nbsp;</h3>
+  <p>
+    Le crayon est l'outil de base de l'application. Il permet de faire des
+    traits simples. Il est possible de sp&eacute;cifier l'&eacute;paisseur du
+    trait en pixels.
+  </p>
+  <h3>Pinceau</h3>
+  <p>
+    Le pinceau est similaire au crayon. Il permet de faire un trait
+    textur&eacute;. Il est possible de sp&eacute;cifier la texture &agrave;
+    utiliser en plus de l'&eacute;paisseur du trait.
+  </p>
+  <h3>Plume</h3>
+  <p>
+    La plume permet elle aussi de faire un trait. Le trait cr&eacute;&eacute;
+    par la plume est born&eacute; par une ligne mince plut&ocirc;t qu'un rond.
+    Il est possible de sp&eacute;cifier la longueur en pixels de la line ainsi
+    que son orientation en degr&eacute;s.
+  </p>
+  <h3>Stylo</h3>
+  <p>
+    Le trait laiss&eacute; sur la surface de dessin par le stylo s&rsquo;amincit
+    en fonction de la vitesse de d&eacute;placement de la souris. Plus la
+    vitesse est grande, plus le trait est mince. Il est possible de
+    sp&eacute;cifier les &eacute;paisseurs minimales et maximales en pixels du
+    trait.
+  </p>
+  <h3>A&eacute;rosol</h3>
+  <p>
+    Comme son nom l'indique, l'outil simule un effet de peinture en
+    a&eacute;rosol. D&egrave;s que le bouton est enfonc&eacute;, un jet de
+    peinture est vaporis&eacute; et suit le mouvement de la souris. La texture
+    est est &eacute;mise &agrave; intevalles r&eacute;guliers jusqu'au
+    rel&acirc;chement du bouton de la souris. Il est possible de
+    sp&eacute;cifier le nombre d'&eacute;missions par seconde ainsi que le
+    diam&egrave;tre en pixels du jet.
+  </p>
+  <h3>Rectangle</h3>
+  <p>
+    Cet outil permet de dessiner un rectangle. Si la touche&nbsp;<em>shift</em>
+    est enfonc&eacute;e avant de ral&acirc;cher le bouton de la souris, la forme
+    sera plut&ocirc;t un carr&eacute;. Il est possible de d&eacute;finir le type
+    de trac&eacute; et l'&eacute;paisseur du contour en pixels.
+  </p>
+  <h3>Ellipse</h3>
+  <p>
+    Cet outil permet de dessiner une ellipse. Tout comme pour le rectangle, si
+    la touche&nbsp;<em>shift</em> est enfonc&eacute;e avant de ral&acirc;cher le
+    bouton de la souris, la forme sera plut&ocirc;t un cercle.&nbsp;Il est
+    possible de d&eacute;finir le type de trac&eacute; et l'&eacute;paisseur du
+    contour en pixels.
+  </p>
+  <h3><strong>Polygone</strong></h3>
+  <p>
+    L'outil polygone est similaire aux outils rectangle et ellipse. Cependant,
+    l'utilisateur peut sp&eacute;cifier le nombre de c&ocirc;t&eacute;s &agrave;
+    dessiner (3 &agrave; 12) en plus du&nbsp;type de trac&eacute; et
+    l'&eacute;paisseur du contour en pixels. Les polygones dessin&eacute;s sont
+    r&eacute;guliers et convexes.
+  </p>
+  <h3><strong>Ligne</strong></h3>
+  <p>
+    L'outil permet de tracer une ligne compos&eacute;e de segments de droite. Le
+    premier clic d&eacute;fini la position de d&eacute;part de la ligne et
+    chaque clic suivant d&eacute;fini la position de fin du segment
+    cr&eacute;&eacute; et le d&eacute;but du suivant. Un double-clic indique la
+    fin de la ligne et si la touche&nbsp;<em>shift&nbsp;</em>est enfonc&eacute;e
+    au moment du double-clic, deux derniers segments sont cr&eacute;&eacute;s
+    pour fermer le trac&eacute; de la ligne. Si la touche&nbsp;<em>esc</em> est
+    enfonc&eacute;e pendant que la ligne est trac&eacute;e, la ligne est
+    annul&eacute;e dans son enti&egrave;ret&eacute;. Il est possible de
+    sp&eacute;cifier le type de jonction entre les segments (arrondi, angle,
+    point), l'&eacute;paisseur en pixels de la ligne, le diam&egrave;tre de la
+    jonction (pour le point) et le motif de la ligne (continu, pointill&eacute;
+    trait ou pointill&eacute; point).
+  </p>
+  <h3><strong>Texte</strong></h3>
+  <p>
+    Cet outil permet d'int&eacute;grer des cha&icirc;nes de caract&egrave;res au
+    dessin. Le texte sera mit &agrave; l'endroit marqu&eacute; par le clic de la
+    souris. Il est possible de sp&eacute;cifier la police d'&eacute;criture, la
+    taille de la police, les mutateurs
+    (<strong>gras</strong>,&nbsp;<em>italique</em>,&nbsp;soulign&eacute;) et
+    l'alignement du texte (gauche, centre, droit)
+  </p>
+  <h3><strong>Applicatuer de couleur</strong></h3>
+  <p>
+    L'applicateur permet d echanger la couleur de l'objet en un cliquant dessus.
+    Le bouton gauche fera changer pour la couleur principale et inversement le
+    bouton droit fera changer la couleur de la bordure pour la couleur
+    secondaire s'il y a lieu.
+  </p>
+  <h3><strong>Sceau de peinture</strong></h3>
+  <p>
+    Le sceau cr&eacute;e un nouvel obet de la couleur s&eacute;lectionn&eacute;e
+    et qui masque la r&eacute;gion voulue.
+  </p>
+  <h3><strong>Efface</strong></h3>
+  <p>
+    L'efface permet de supprimer un objet de la surface de dessin. Tout objet en
+    contact avec l'efface est supprim&eacute; au moment du clic. Il est possible
+    de sp&eacute;cifier la taille de l'efface en pixels.
+  </p>
+  <h3>&Eacute;tampe</h3>
+  <p>
+    L'&eacute;tampe appose une petite image sur le dessin (clipart ou emoji). Il
+    est possible de sp&eacute;cifier le facteur de mise &agrave;
+    l'&eacute;chelle, l'angle d'orientation (degr&eacute;s), le choix
+    d'&eacute;tampe.
+  </p>
+  <h3>Pipette</h3>
+  <p>
+    La pipette permet de saisir la couleur sous le curseur de la souris. Au clic
+    gauche, la couleur est assign&eacute;e &agrave; la couleur principale et au
+    clic droit elle est assign&eacute;e &agrave; la couleur secondaire.
+  </p>
+  <h3>Grille&nbsp;</h3>
+  <p>
+    Permet d&rsquo;afficher une grille superpos&eacute;e &agrave; la surface de
+    dessin et de son contenu. Son point d&rsquo;origine est le coin
+    sup&eacute;rieur gauche de la surface. Il doit &ecirc;tre possible
+    d&rsquo;activer ou d&eacute;sactiver la grille, de lui assigner une valeur
+    de transparence et finalement d&rsquo;indiquer la taille (en pixels) des
+    carr&eacute;s la composant.
+  </p>
+  <h3>Magn&eacute;tisme</h3>
+  <p>
+    Lorsque cette option est activ&eacute;e, chaque fois qu&rsquo;une boite
+    englobante est d&eacute;plac&eacute;e celle-ci se
+    &laquo;&thinsp;collera&thinsp;&raquo; ou s&rsquo;alignera sur la ligne de
+    grille la plus pr&egrave;s. Cet alignement se fait en x et en y.
+  </p>
+</mat-dialog-content>

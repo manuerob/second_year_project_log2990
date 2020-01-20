@@ -1,0 +1,35 @@
+@import '../../../../../styles-variables.scss';
+
+#container1 {
+  display: flex;
+  justify-content: stretch;
+  mat-slider {
+    width: 180px;
+    margin-right: 1em;
+    .mat-slider-wrapper {
+      background: white !important;
+      display: none;
+    }
+  }
+  mat-form-field {
+    width: 50px;
+    justify-self: right;
+  }
+}
+#container2 {
+  display: flex;
+  justify-content: stretch;
+  mat-slider {
+    width: 160px;
+    margin-right: 1em;
+    .mat-slider-wrapper {
+      background: rgb(80, 5, 94) !important;
+      display: none;
+    }
+  }
+
+  mat-form-field {
+    width: 150px;
+    justify-self: right;
+  }
+}

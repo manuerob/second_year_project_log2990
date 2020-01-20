@@ -1,0 +1,17 @@
+#container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: center;
+  #slider {
+    margin: 0 1em;
+  }
+  #input-slider {
+    margin: 0 1em;
+    width: 90px;
+  }
+}
+
+::ng-deep .mat-form-field .mat-form-field-infix {
+  width: 10px;
+}

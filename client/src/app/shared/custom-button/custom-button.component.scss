@@ -1,0 +1,29 @@
+@import '../../../styles-variables.scss';
+
+.button {
+  background-color: $primary-color;
+  margin-right: 1em;
+  margin-top: 1em;
+  transition: background-color, color 0.4s ease-in-out;
+  &:hover {
+    background-color: $background-color-toolbar-button-hover;
+    color: black;
+  }
+}
+
+.mat-button[disabled],
+.mat-flat-button[disabled],
+.mat-icon-button[disabled],
+.mat-stroked-button[disabled] {
+  background-color: rgb(80, 105, 175);
+  &:hover {
+    color: rgb(58, 55, 55);
+  }
+}
+
+.warning{
+  background-color: rgb(161, 53, 11);
+}
+.cancel{
+  background-color: rgb(12, 147, 165);
+}

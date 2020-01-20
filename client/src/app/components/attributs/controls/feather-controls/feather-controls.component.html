@@ -1,0 +1,20 @@
+<div id="container">
+  <app-input-number
+    [min]="1"
+    [max]="100"
+    name="Largeur"
+    [value]="featherLength"
+    (valueChanged)="onFeatherLengthChange($event)"
+  ></app-input-number>
+  <app-input-number
+    [min]="0"
+    [max]="360"
+    name="Angle"
+    [(value)]="angle"
+    (valueChanged)="onAngleChange($event)"
+  >
+  </app-input-number>
+  <mat-slide-toggle  (dragChange)="onWidthChange()"  [(ngModel)]="checked" (change)="onWidthChange()">
+    Longueur
+  </mat-slide-toggle>
+</div>

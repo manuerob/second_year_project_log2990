@@ -1,0 +1,71 @@
+@import "../../../styles-variables.scss";
+
+#container {
+  background-color: $secondary-color;
+  padding: 1em;
+  .tutorial-button {
+    background-color: $primary-color;
+    transition: background-color, color 0.4s ease-in-out;
+    &:hover {
+      background-color: $background-color-toolbar-button-hover;
+      color: black;
+    }
+  }
+  button {
+    margin: 1em 1em 1em 0;
+  }
+}
+
+.instruction {
+  height: auto;
+}
+
+.instructionImages {
+  height: 25%;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+}
+
+.instructionDiv {
+  height: 250px;
+  width: 400px;
+}
+
+.top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  .icon {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease-in;
+    &:hover {
+      color: white;
+    }
+  }
+  button {
+  }
+}
+
+.top{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    
+    .icon{
+        font-size: 25px;
+        color: black;
+        cursor: pointer;
+        transition: color .3s ease-in;
+        &:hover{
+            color: white;
+        }
+    }
+
+}

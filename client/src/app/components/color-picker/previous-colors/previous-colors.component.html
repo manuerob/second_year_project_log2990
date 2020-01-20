@@ -1,0 +1,13 @@
+<div id="container">
+  <div class="button" (click)="addNewColor()">+</div>
+  <div
+    class="color-square"
+    *ngFor="let previousColor of colorPicker.previousColors$ | async"
+    (click)="selectColor(previousColor)"
+    [ngStyle]="{
+      'background-color': previousColor.getColorString() || 'white'
+    }"
+  >
+    <span>x</span>
+  </div>
+</div>

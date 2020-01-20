@@ -1,0 +1,9 @@
+<div id="container" *ngIf="gridService.showGrid$ | async">
+  <app-input-number
+    [min]="min"
+    [max]="max"
+    name="Opacité"
+    [value]="gridService.opacity * 100"
+    (valueChanged)="onUpdateOpacity($event)"
+  ></app-input-number>
+</div>

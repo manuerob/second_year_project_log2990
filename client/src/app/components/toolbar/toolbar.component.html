@@ -1,0 +1,16 @@
+<div id="container">
+  <section *ngIf="tools.length">
+    <ng-container *ngFor="let tool of tools">
+      <app-button [tool]="tool"></app-button>
+    </ng-container>
+  </section>
+  <section id="quick-access" *ngIf="managerTools.length">
+    <ng-container *ngFor="let tool of managerTools">
+      <app-button
+        [manager]="true"
+        class="manager-buttons"
+        [tool]="tool"
+      ></app-button>
+    </ng-container>
+  </section>
+</div>

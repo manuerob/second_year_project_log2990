@@ -1,0 +1,12 @@
+<div id="container">
+  <input
+    type="range"
+    [(ngModel)]="opacity"
+    min="0"
+    max="100"
+    (ngModelChange)="onChange($event, opacity)"
+  /> 
+  <mat-form-field class="example-margin">
+    <input matInput type="number" placeholder="Opacité" [(ngModel)]="opacity" />
+  </mat-form-field>
+</div>

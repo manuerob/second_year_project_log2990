@@ -1,0 +1,43 @@
+@import "../../../../styles-variables.scss";
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.hide {
+  display: none !important;
+}
+#container {
+  animation: 0.2s ease-out 0s 1 slideInFromLeft;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1em auto;
+
+  app-select-controler {
+    display: flex;
+    width: 50px;
+  }
+  input {
+    display: flex;
+    width: 60px;
+    background: white;
+    flex-direction: row;
+  }
+  #iconList {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    a {
+      margin: 0.5em;
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+ }

@@ -1,0 +1,16 @@
+<app-input-number
+  [min]="1"
+  [max]="100"
+  name="Tolérance"
+  [value]="tolerance"
+  (valueChanged)="onToleranceChange($event)"
+></app-input-number>
+<app-input-number
+  [min]="1"
+  [max]="20"
+  name="Épaisseur du trait"
+  [value]="strokeWidth"
+  (valueChanged)="onStrokeWidthChange($event)"
+></app-input-number>
+<app-custom-dropdown-list (valueChanged)="onPlotTypeChange($event)" title="type de tracé" [currentValue]="selected" [values]="plotTypes"></app-custom-dropdown-list>
+

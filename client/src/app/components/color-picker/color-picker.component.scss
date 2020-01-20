@@ -1,0 +1,57 @@
+@import '../../../styles-variables.scss';
+
+#color-picker-content {
+  width: 90%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1em auto;
+  align-self: center;
+  background-color: #29415e;
+  overflow: hidden;
+}
+
+.section {
+  display: flex;
+  margin: 0.3em 0;
+}
+
+#overlay {
+  width: 130px;
+  margin-right: 1em;
+  height: 50px;
+  background-image: url('https://i7.pngguru.com/preview/569/705/68/white-black-pattern-white-circle-background.jpg');
+}
+
+#shown-color {
+  width: 130px;
+  height: 50px;
+  position: absolute;
+}
+
+.mat-stroked-button:not([disabled]) {
+  border-color: #92b7e4;
+  &:hover {
+    border-color: rgb(240, 165, 165);
+  }
+}
+
+button {
+  margin-top: 1em;
+  color: #ffffff;
+  @keyframes glowing {
+    0% {
+      background-color: #770404;
+      box-shadow: 0 0 3px #770404;
+    }
+    50% {
+      background-color: #b30606;
+      box-shadow: 0 0 10px #b30606;
+    }
+    100% {
+      background-color: #770404;
+      box-shadow: 0 0 3px #770404;
+    }
+  }
+}

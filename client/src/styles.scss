@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: white;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label{
+    color: white;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+  color: white;
+}
+
+.mat-form-field-prefix, .mat-form-field-suffix{
+  color: white;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button{
+  color: white;
+}
+
+.mat-select-value{
+  color: white;
+}
+
+.mat-select-arrow {
+  color:white;
+}
+
+.cdk-overlay-pane > .mat-dialog-container{
+  padding: 0;
+  overflow: hidden;
+}
+
+.cdk-overlay-pane > .mat-dialog-actions{
+  padding: 0;
+  margin: 0;
+}
+
+.mat-slide-toggle-content{
+  color: white;
+}

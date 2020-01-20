@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <svg:pattern
+      id="smallGrid"
+      [attr.width]="gridService.sizeSmallSquare"
+      [attr.height]="gridService.sizeSmallSquare"
+      [attr.fill-opacity]="gridService.opacity$ | async"
+      patternUnits="userSpaceOnUse"
+    >
+      <svg:path
+        [attr.d]="gridService.dPathSmallGrid"
+        fill="none"
+        stroke="gray"
+        stroke-width="0.5"
+      />
+    </svg:pattern>
+    <svg:pattern
+      id="grid"
+      [attr.width]="gridService.sizeBigSquare"
+      [attr.height]="gridService.sizeBigSquare"
+      [attr.fill-opacity]="gridService.opacity$ | async"
+      patternUnits="userSpaceOnUse"
+    >
+      <rect
+        [attr.width]="gridService.sizeBigSquare"
+        [attr.height]="gridService.sizeBigSquare"
+        fill="url(#smallGrid)"
+        [attr.fill-opacity]="gridService.opacity$ | async"
+      />
+      <svg:path
+        [attr.d]="gridService.dPathBigGrid"
+        fill="none"
+        stroke="gray"
+        stroke-width="1"
+      />
+    </svg:pattern>
+  </defs>
+  <rect
+    width="100%"
+    height="100%"
+    fill="url(#grid)"
+    [attr.fill-opacity]="gridService.opacity$ | async"
+  />
+</svg>

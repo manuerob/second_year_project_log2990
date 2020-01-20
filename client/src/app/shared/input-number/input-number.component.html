@@ -1,0 +1,23 @@
+<div id="container">
+  <input
+    id="slider"
+    type="range"
+    [(ngModel)]="value"
+    [min]="min"
+    [max]="max"
+    (ngModelChange)="onValueChange($event, value)"
+  />
+  <mat-form-field id="input-slider">
+    <input
+      matInput
+      type="number"
+      placeholder="{{ name }}"
+      (focus)="onFocus()"
+      [min]="min"
+      [max]="max"
+      (blur)="onBlur()"
+      [(ngModel)]="value"
+      (ngModelChange)="onValueChange($event, value)"
+    />
+  </mat-form-field>
+</div>

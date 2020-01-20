@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    justify-content: stretch;
+  
+    mat-slider {
+      width: 160px;
+      margin-right: 1em;
+      .mat-slider-wrapper {
+        background: white !important;
+        display: none;
+      }
+    }
+  
+    mat-form-field {
+      width: 50px;
+      justify-self: right;
+    }
+  }
